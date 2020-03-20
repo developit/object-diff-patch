@@ -1,6 +1,7 @@
 {
   "name": "object-diff-patch",
   "version": "0.1.0",
+  "repo": "gist:998926ad50b",
   "main": "index.js",
   "module": "index.js",
   "type": "module",
