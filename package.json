@@ -1,0 +1,15 @@
+{
+  "name": "object-diff-patch",
+  "version": "0.1.0",
+  "main": "index.js",
+  "module": "index.js",
+  "type": "module",
+  "scripts": { "prepack": "mv *object-diff-patch.md README.md", "postpack": "mv README.md *object-diff-patch.md" },
+  "exports": {
+    ".": "./index.js",
+    "./diff": "./diff.js",
+    "./patch": "./patch.js"
+  },
+  "author": "Jason Miller <jason@developit.ca>",
+  "license": "Apache-2.0"
+}
