@@ -1,12 +1,18 @@
 /**
  * Use this to create a "patch" object in the worker thread.
- * patch = diff(newObject, oldObject);
+ * @template {any} T
+ * @template {any} U
+ * @param {T} obj
+ * @param {U} old
+ * @returns {T | (Partial<T> | Partial<U>) | undefined}
+ * @example
+ * 	patch = diff(newObject, oldObject);
  */
-export function diff (obj, old) {
+export function diff(obj, old) {
 	if (typeof obj === 'object') {
 		const isArray = Array.isArray(obj);
 
-		if (!old || typeof old !== 'object' || (isArray !== Array.isArray(old))) {
+		if (!old || typeof old !== 'object' || isArray !== Array.isArray(old)) {
 			return obj;
 		}
 
@@ -14,7 +20,7 @@ export function diff (obj, old) {
 			let out;
 			let i = 0;
 			const max = Math.min(obj.length, old.length);
-			for ( ; i<max; i++) {
+			for (; i < max; i++) {
 				const differs = different(obj[i], old[i]);
 				if (differs) break;
 			}
@@ -29,8 +35,7 @@ export function diff (obj, old) {
 						if (!out) out = useArray ? [] : {};
 						out[j] = diff(obj[j], old[oldJ]);
 					}
-				}
-				else {
+				} else {
 					if (!out) out = useArray ? [] : {};
 					out[j] = obj[j];
 				}
@@ -57,13 +62,12 @@ export function diff (obj, old) {
 			}
 		}
 		return out;
-	}
-	else if (obj != old) {
+	} else if (obj != old) {
 		return obj;
 	}
 }
 
-function different (obj, old) {
+function different(obj, old) {
 	for (let key in obj) {
 		if (old == null || !(key in old) || obj[key] !== old[key]) {
 			return true;

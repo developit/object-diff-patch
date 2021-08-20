@@ -1,17 +1,37 @@
 {
   "name": "object-diff-patch",
-  "version": "0.1.1",
-  "repository": "gist:998926ad50b",
-  "homepage": "https://gist.github.com/998926ad50b5743ac5a108dfde2fbeb2",
-  "main": "index.js",
-  "module": "index.js",
+  "version": "0.1.2",
+  "repository": "developit/object-diff-patch",
   "type": "module",
-  "scripts": { "prepack": "mv *object-diff-patch.md README.md", "postpack": "mv README.md *object-diff-patch.md" },
   "exports": {
     ".": "./index.js",
     "./diff": "./diff.js",
     "./patch": "./patch.js"
   },
+  "module": "index.js",
+  "main": "index.js",
   "author": "Jason Miller <jason@developit.ca>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "eslintConfig": {
+    "extends": [
+      "developit",
+      "prettier"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "useTabs": true,
+    "overrides": [
+      {
+        "files": "**/*.json",
+        "options": {
+          "parser": "json-stringify",
+          "useTabs": false,
+          "tabWidth": 2
+        }
+      }
+    ]
+  }
 }

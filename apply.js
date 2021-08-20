@@ -1,6 +1,12 @@
 /**
  * Use this to apply diffs on the main thread.
- * newObject = apply(oldObject, patch);
+ * @template {any} T
+ * @template {any} U
+ * @param {T} obj
+ * @param {U} diff
+ * @returns {(T extends any[] ? T : { [K: keyof (U|T)]: (U|T)[K] }) | T | U | undefined} diff
+ * @example
+ * 	newObject = apply(oldObject, patch);
  */
 export function apply(obj, diff) {
 	if (typeof obj !== typeof diff) {
@@ -12,15 +18,12 @@ export function apply(obj, diff) {
 			return diff;
 		}
 
-		let out;
+		let out = obj;
 		if (Array.isArray(obj)) {
-			out = obj;
 			for (let i in diff) {
 				out[i] = apply(obj[i], diff[i]);
 			}
-		}
-		else {
-			out = obj;
+		} else {
 			for (let i in diff) {
 				out[i] = apply(obj[i], diff[i]);
 			}
