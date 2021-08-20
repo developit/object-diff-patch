@@ -1,10 +1,5 @@
 /**
  * Use this to create a "patch" object in the worker thread.
- * @template {any} T
- * @template {any} U
- * @param {T} obj
- * @param {U} old
- * @returns {T | (Partial<T> | Partial<U>) | undefined}
  * @example
  * 	patch = diff(newObject, oldObject);
  */

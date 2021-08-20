@@ -10,6 +10,7 @@
   },
   "module": "index.js",
   "main": "index.js",
+  "types": "index.d.js",
   "author": "Jason Miller <jason@developit.ca>",
   "license": "Apache-2.0",
   "eslintConfig": {

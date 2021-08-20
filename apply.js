@@ -1,10 +1,5 @@
 /**
  * Use this to apply diffs on the main thread.
- * @template {any} T
- * @template {any} U
- * @param {T} obj
- * @param {U} diff
- * @returns {(T extends any[] ? T : { [K: keyof (U|T)]: (U|T)[K] }) | T | U | undefined} diff
  * @example
  * 	newObject = apply(oldObject, patch);
  */
