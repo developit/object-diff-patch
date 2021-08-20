@@ -1,4 +1,4 @@
-# `object-diff-patch`
+# `object-diff-patch` [![npm](https://img.shields.io/npm/v/object-diff-patch.svg)](https://www.npmjs.org/package/object-diff-patch)
 
 Calculates the difference between two objects/arrays/primitives.
 The resulting patch object is a subset of the source object's structure.
